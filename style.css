@@ -1,3 +1,4 @@
+
 :root{
   --bg:#0a0a0f;
   --card:#11111a;
@@ -84,4 +85,85 @@ body{
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
+}
+/* ===== HERO SECTION (Profile Card Style) ===== */
+
+/* Background with layered gradients + light parallax movement */
+#heroBg {
+  background:
+    radial-gradient(1000px 600px at 20% 20%, rgba(0,212,255,.25), transparent 60%),
+    radial-gradient(1000px 600px at 80% 80%, rgba(143,0,255,.20), transparent 60%),
+    linear-gradient(120deg, #06060a, #0f0f19 60%, #061321);
+  filter: saturate(115%);
+  will-change: transform; /* Optimize for parallax animations */
+}
+
+/* Main profile card with glassmorphism effect */
+.hero-card {
+  background: rgba(17,17,26,.6);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  transition: all .3s ease;
+  position: relative;
+  text-align: left !important;
+}
+
+/* Profile avatar — fixed position within the card */
+.avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,.15);
+  float: left;
+  margin: 4px 16px 8px 4px;
+  /* No negative margins — prevents jumping when resizing */
+}
+
+/* Button hover — soft shadow + small floating effect */
+.btn {
+  transition: transform .2s, box-shadow .2s;
+  will-change: transform;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,212,255,.25);
+}
+
+/* Social icons — neon hover glow + micro motion */
+.social a {
+  color: #cfefff;
+  margin: 0 .35rem;
+  font-size: 1.25rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.social a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,212,255,.3);
+}
+
+/* Glassmorphism helper for other components */
+.glass {
+  background: rgba(17,17,26,.6);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+}
+
+/* Smooth print mode — hides visuals during PDF export */
+@media print {
+  body { background: #fff; color: #000; }
+  #heroBg, .social, #themeToggle { display: none !important; }
+  .glass { border: none; box-shadow: none; }
+}
+.hero-card::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+@media (max-width: 576px) {
+    .hero-card { text-align: center !important; }
+    .avatar { float: none; display: block; margin: 0px auto 12px; }
 }
