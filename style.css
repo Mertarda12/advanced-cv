@@ -1,0 +1,87 @@
+:root{
+  --bg:#0a0a0f;
+  --card:#11111a;
+  --glass:rgba(17,17,26,.6);
+  --cyan:#00d4ff;
+  --violet:#8f00ff;
+  --muted:#9aa0aa;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family:Poppins,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);color:#fff;overflow-x:hidden
+}
+
+.z-top{z-index:1100}
+
+#heroBg{
+  background:
+    radial-gradient(1000px 600px at 20% 20%, rgba(0,212,255,.15), transparent 60%),
+    radial-gradient(1000px 600px at 80% 80%, rgba(143,0,255,.12), transparent 60%),
+    linear-gradient(120deg,#06060a,#0f0f19 60%,#061321);
+  filter: saturate(120%);
+}
+
+.glass{
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+  border-radius:18px
+}
+.avatar{
+  width:120px;height:120px;border-radius:50%;object-fit:cover;
+  border:3px solid rgba(255,255,255,.15);margin-top:-70px
+}
+
+.section-title{
+  font-weight:700;margin-bottom:1rem;
+  background:linear-gradient(90deg,var(--cyan),var(--violet));
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+
+.about-card{
+  background:#0f0f18;border-radius:14px;border:1px solid rgba(255,255,255,.05)
+}
+.about-card .meta{font-size:.8rem;color:var(--muted)}
+
+.timeline{padding-left:1.25rem}
+.timeline .line{
+  position:absolute;left:1.25rem;top:0;bottom:0;width:2px;
+  background:linear-gradient(var(--cyan),var(--violet));opacity:.4
+}
+.tl-item{
+  position:relative;margin-left:2.5rem;margin-bottom:1.75rem;padding-left:.75rem
+}
+.tl-item .badge{
+  display:inline-block;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:999px;padding:.2rem .6rem;margin-bottom:.3rem;color:#cfefff
+}
+
+.progress{
+  height:10px;background:#0f0f18;border-radius:999px;border:1px solid rgba(255,255,255,.06)
+}
+.progress-bar{
+  width:0%;height:100%;
+  background:linear-gradient(90deg,var(--cyan),var(--violet));
+  border-radius:999px;transition:width .8s ease
+}
+
+.project.card{
+  border:1px solid rgba(255,255,255,.08);
+  overflow:hidden
+}
+.project .card-img-top{aspect-ratio:16/10;object-fit:cover}
+.project:hover{transform:translateY(-6px);transition:.25s}
+
+.social a{color:#cfefff;margin:0 .35rem;font-size:1.25rem}
+.social a:hover{color:#fff}
+
+.btn-info{--bs-btn-bg:var(--cyan);--bs-btn-border-color:var(--cyan);--bs-btn-hover-bg:#00a2cc}
+.btn-outline-info{--bs-btn-color:var(--cyan);--bs-btn-border-color:var(--cyan);--bs-btn-hover-bg:rgba(0,212,255,.1)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+}
